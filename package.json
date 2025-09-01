@@ -1,22 +1,41 @@
 {
-  "name": "minimal-repro",
+  "name": "assistencialize",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Meu App Multi WhatsApp",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
-  "repository": "https://github.com/electron/minimal-repro",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Seu Nome",
   "devDependencies": {
-    "electron": "^37.4.0"
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.seu-nome.assistencialize",
+    "productName": "Assistencialize",
+    "files": [
+      "main.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "icon.png"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "icon.png"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.6.2"
   }
 }

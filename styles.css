@@ -1,3 +1,101 @@
-/* styles.css */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Add styles here to customize the appearance of your app */
+body, html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: row;
+    background-color: #f0f2f5;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #111b21;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-right: 1px solid #2a3942;
+}
+
+.instances-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.instance-button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 2px solid transparent; /* Borda invisível por padrão */
+    background-color: #202c33;
+    color: #e9edef;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.2s, border-color 0.3s;
+}
+
+.instance-button:hover { background-color: #2a3942; }
+.instance-button.active { background-color: #2a3942; }
+
+/* NOVA ANIMAÇÃO DE NOTIFICAÇÃO (BRILHO NA BORDA) */
+@keyframes glow {
+    0% { border-color: #25d366; box-shadow: 0 0 5px #25d366; }
+    50% { border-color: #128c7e; box-shadow: 0 0 15px #128c7e; }
+    100% { border-color: #25d366; box-shadow: 0 0 5px #25d366; }
+}
+
+.instance-button.unread {
+    animation: glow 1.5s infinite;
+}
+
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.profile-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #e9edef;
+}
+
+#add-instance-btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 15px;
+    border: none;
+    background-color: #00a884;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+#add-instance-btn:hover { background-color: #008a69; }
+
+.webview-container {
+    flex-grow: 1;
+    height: 100%;
+}
+
+.webview-content {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.webview-content.active {
+    display: flex;
+}
